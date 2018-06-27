@@ -1,0 +1,377 @@
+@import url(https://fonts.googleapis.com/css?family=Raleway);
+
+@-webkit-keyframes bgPosition {
+  0% {background-position: -250px 0px;}
+  17% {background-position: 250px 0px;}
+  100% {background-position: 250px 0px;}
+}
+@keyframes bgPosition {
+  0% {background-position: -250px 0px;}
+  17% {background-position: 250px 0px;}
+  100% {background-position: 250px 0px;}
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  display: table;
+  background-image: url(/images/background.jpg);
+  background-size: cover;
+  background-position: center top;
+}
+
+body {
+  font-family: 'Raleway', sans-serif;
+  color: #FFFFFF;
+
+  a {
+    text-decoration: none;
+    color: #FFFFFF;
+  }
+
+  .body-after {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    opacity: 0.83;
+
+    background-image: -webkit-linear-gradient(170deg, #f1c40f, #27ae60);
+    background-image:    -moz-linear-gradient(170deg, #f1c40f, #27ae60);
+    background-image:      -o-linear-gradient(170deg, #f1c40f, #27ae60);
+    background-image:         linear-gradient(170deg, #f1c40f, #27ae60);
+  }
+
+  .container-wrapper {
+    position: relative;
+    z-index: 9999;
+    height: 100%; /* from html tag to .container, all have to be 100% (FF Fix) */
+    text-align: center;
+    vertical-align: middle;
+    display: table-cell;
+
+    .container {
+      position: relative;
+      height: 250px;
+      transition: all 2s;
+      transition-delay: 2s; /* For closing */
+
+      header {
+        width: 500px;
+        margin: auto;
+        transition: all 2s;
+        transition-delay: 2s; /* For closing */
+      }
+
+      h1 {
+        position: relative;
+        margin-bottom: 25px;
+        margin-top: 0;
+        padding-top: 15px;
+        color: #FFFFFF;
+        height: 1.4em;
+        text-transform: uppercase;
+        opacity: 0.65;
+
+        .bigger {
+          font-size: 1.4em;
+        }
+
+        .backgroundcliptext & {
+         /* background: linear-gradient(150deg, #DDDDDD 0%, #DDDDDD 45%, #CCCCCC 47%, #FFFFFF 48%, #FFFFFF 52%, #CCCCCC 53%, #DDDDDD 55%, #DDDDDD 100%); */
+         /* Double */
+          background: linear-gradient(150deg, #DDDDDD 0%, #DDDDDD 45%, #CCCCCC 47%, #FFFFFF 48%, #CCCCCC 49%, #FFFFFF 50%, #FFFFFF 52%, #CCCCCC 53%, #DDDDDD 55%, #DDDDDD 100%);
+
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+
+          background-position: -250px;
+          background-repeat: none;
+
+          -webkit-animation-name: bgPosition; /* Chrome, Safari, Opera */
+          -webkit-animation-duration: 8s; /* Chrome, Safari, Opera */
+          -webkit-animation-delay: 3s;
+          -webkit-animation-iteration-count: infinite;
+          animation-name: bgPosition;
+          animation-duration: 8s; /* repeat after */
+          animation-delay: 3s; /* First time */
+          animation-iteration-count: infinite;
+        }
+      }
+      .blabla-wrapper {
+        opacity: 1;
+        transition: all 2s;
+        transition-delay: 2s; /* For closing */
+
+        .blabla {
+          height: 30px;
+          color: #DDD;
+          opacity: 1;
+          transition: all 0.5s;
+          transform: translate(0px);
+
+          &.blabla--hidden {
+            color: #FFF;
+            opacity: 0;
+            transform: translate(-100px)
+          }
+        }
+      }
+      .follow {
+        a {
+          margin: 0 10px;
+          opacity: 0.4;
+        }
+        a:hover {
+          opacity: 1;
+        }
+        .follow-label {
+          color: #FFFFFF;
+          margin-top: 10px;
+        }
+        i {
+          transition: all 2s;
+        }
+
+        width: 225px;
+        float: right;
+
+        position: absolute;
+        right: 10px;
+        top: 150px;
+
+        transition: all 2s;
+        transition-delay: 2s; /* For closing */
+
+        margin-right: 50%;
+        transform: translateX(125px);
+
+        /* First step : animate */
+        /*margin-right: 0; */
+        /*transform: translateX(10px); */
+
+        /* Animate */
+        /* top: 25px; */
+      }
+    }
+  }
+
+  .content {
+    position: absolute;
+    z-index: 5;
+    top: 125px;
+    left: 25px;
+    right: 25px;
+    bottom: 50px;
+
+    padding: 25px;
+
+    text-align: center;
+
+    background: rgba(50,50,50, 0.5);
+    opacity: 0;
+    transition: all 2s;
+    transition-delay: 0s;
+  }
+
+  footer {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    z-index: 9999999;
+    font-size: 17px;
+
+    a:hover {
+      color: #6DDA3A;
+      text-shadow: 1px 1px 0px rgb(90, 90, 90);
+    }
+
+    .separator {
+      margin: 0 10px;
+    }
+    @media screen and (max-width: 600px) {
+      .separator {
+        display: none;
+      }
+      .footer-item {
+        display: block;
+      }
+    }
+  }
+}
+
+
+html.open {
+  .container-wrapper {
+    .container {
+      display: block;
+      height: 100%;
+      transition-delay: 0s; /* For open */
+      header {
+        width: 100%;
+        transition-delay: 0s; /* For open */
+        h1 {
+          cursor: pointer;
+        }
+        .blabla-wrapper {
+          opacity: 0;
+          transition-delay: 0s; /* For open */
+        }
+        .follow {
+          transition-delay: 0s; /* For open */
+          @media screen and (min-width: 800px) {
+            margin-right: 0;
+            transform: translateX(10px);
+            top: 33px;
+            }
+          i {
+            font-size: 1.5em;
+          }
+        }
+        @media screen and (max-width: 800px) {
+
+          padding-top: 50px;
+
+          .cube-wrapper {
+            top: -25px; /* take account h1 margin-top */
+            left: 50%;
+            margin-left: -16px;
+          }
+          .follow {
+            top: 125px;
+          }
+        }
+      }
+    }
+  }
+  .content {
+    transition-delay: 2s;
+    opacity: 1;
+
+    @media screen and (max-width: 800px) {
+      top: 175px;
+    }
+    @media screen and (max-width: 600px) {
+      bottom: 80px;
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+@cube_r: 230;
+@cube_g: 230; /*205;*/
+@cube_b: 230; /*23;*/
+
+
+@cube_size: 32px;
+@half_cube_size: @cube_size / 2;
+
+.cube-container {
+  width: @cube_size;
+  height: @cube_size;
+  position: absolute;
+  top: 0;
+  left: 0;
+  perspective: 1000px;
+  margin: 0 auto;
+}
+#cube {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transform-style: preserve-3d;
+  transform: translateZ( -@half_cube_size ) rotateZ(45deg) rotateX(45deg);
+  animation: spin 5s infinite linear;
+}
+@keyframes spin {
+  0% { transform: translateZ( -@half_cube_size ) rotateY(360deg) rotateZ(0deg) rotateX(45deg) }
+  50% { transform: translateZ( -@half_cube_size ) rotateY(180deg) rotateZ(180deg) rotateX(45deg) }
+  100% { transform: translateZ( -@half_cube_size ) rotateY(0deg) rotateZ(360deg) rotateX(45deg) }
+}
+#cube figure {
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: absolute;
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 2px #fff;
+}
+#cube .front  { transform: rotateY(   0deg ) translateZ( @half_cube_size ); }
+#cube .back   { transform: rotateX( 180deg ) translateZ( @half_cube_size ); }
+#cube .right  { transform: rotateY(  90deg ) translateZ( @half_cube_size ); }
+#cube .left   { transform: rotateY( -90deg ) translateZ( @half_cube_size ); }
+#cube .top    { transform: rotateX(  90deg ) translateZ( @half_cube_size ); }
+#cube .bottom { transform: rotateX( -90deg ) translateZ( @half_cube_size ); }
+
+
+
+/*
+.cube-wrapper {
+  position: relative;
+  top: 22px;
+  left: 32px;
+
+  width: 32px;
+  height: 32px;
+  float: left;
+
+  transition: all 2s;
+
+  perspective: 2500px;
+
+  .cube {
+
+    width: 100%;
+    height: 100%;
+
+    transform-style: preserve-3d;
+    transform: rotateX(72deg) rotateY(304deg) rotateZ(127deg);
+    opacity: 0.5;
+
+    figure {
+      position: absolute;
+      width: 32px;
+      height: 32px;
+      margin: 0;
+      padding: 0;
+      border: 1px solid rgb($cube_r, $cube_g, $cube_b);
+      background: rgba($cube_r, $cube_g, $cube_b, 0.3);
+
+      box-shadow: rgba($cube_r, $cube_g, $cube_b, 0.4) 0 0 10px;
+
+      &:nth-child(1) {
+        transform: translateZ(-16px);
+      }
+      &:nth-child(2) {
+        transform: rotateY(270deg) translateZ(-16px);
+      }
+      &:nth-child(3) {
+        transform: rotateX(270deg) translateZ(-16px);
+      }
+      &:nth-child(4) {
+        transform: rotateX(90deg) translateZ(-16px);
+      }
+      &:nth-child(5) {
+        transform: rotateY(90deg) translateZ(-16px);
+      }
+      &:nth-child(6) {
+        transform: rotateY(180deg) translateZ(-16px);
+      }
+    }
+  }
+}
+
+*/

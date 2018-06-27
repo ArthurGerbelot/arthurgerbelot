@@ -1,0 +1,55 @@
+<head>
+  <meta name="viewport" content="width=500, initial-scale=1">
+  <title>Arthur Gerbelot</title>
+</head>
+
+<body>
+  {{> layout}}
+  <div class="body-after"></div>
+</body>
+
+<template name="layout">
+  <div class="container-wrapper">
+    <div class="container">
+      <header>
+        <h1>
+          <div class="cube-container">
+            <div id="cube">
+              <figure class="face front"></figure>
+              <figure class="face back"></figure>
+              <figure class="face left"></figure>
+              <figure class="face right"></figure>
+              <figure class="face top"></figure>
+              <figure class="face bottom"></figure>
+            </div>
+          </div>
+          <span><span class="bigger">A</span>rthur</span>
+          <span><span class="bigger">G</span>erbelot</span>
+        </h1>
+        <div class="blabla-wrapper">
+          <div class="blabla {{#if isBlablaHidden}} blabla--hidden {{/if}} {{#if isBlablaClose}} blabla--close {{/if}}">
+            {{blabla}}
+          </div>
+        </div>
+        <div class="follow">
+          {{#each getFollowLinks}}
+            <a href="{{url}}" target="_blank" data-label="{{label}}"><i class="fa fa-2x fa-{{icon}}"></i></a>
+          {{/each}}
+          {{#if followLabel}}
+            <div class="follow-label"><small>{{followLabel}}</small></div>
+          {{/if}}
+        </div>
+      </header>
+    </div>
+  </div>
+  <div class="content">
+    .Coming soon.
+  </div>
+  <footer>
+<!--     <span class="footer-item"><a href="tel:+15146215420"> <i class="fa fa-phone"></i> (514) 621-5420</a></span>
+    <span class="separator">|</span> -->
+    <span class="footer-item"><a href="mailto:arthur.gerbelot@gmail.com"> <i class="fa fa-envelope-o"></i> arthur.gerbelot@gmail.com</a></span>
+    <span class="separator">|</span>
+    <span class="footer-item"><i class="fa fa-copyright"></i> {{year}}</span>
+  </footer>
+</template>
